@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Отметка присутствия</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Экран регистрации -->
+        <div id="register-screen" class="screen">
+            <div class="logo">
+                <div class="logo-icon">🏠</div>
+                <h1>Отметка присутствия</h1>
+            </div>
+            <form id="register-form">
+                <div class="form-group">
+                    <label for="full-name">Введите ваше ФИО</label>
+                    <input 
+                        type="text" 
+                        id="full-name" 
+                        placeholder="Фамилия Имя" 
+                        autocomplete="name"
+                        required
+                    >
+                </div>
+                <button type="submit" class="btn btn-primary btn-large">Войти</button>
+            </form>
+        </div>
+
+        <!-- Главный экран -->
+        <div id="main-screen" class="screen hidden">
+            <div class="header">
+                <div class="user-info">
+                    <span class="user-name" id="user-name"></span>
+                </div>
+            </div>
+
+            <div class="status-card" id="status-card">
+                <div class="status-label">Ваш статус:</div>
+                <div class="status-value" id="current-status"></div>
+            </div>
+
+            <!-- Кнопки для статуса "В здании" -->
+            <div id="leaving-buttons" class="button-group hidden">
+                <h2 class="section-title">Куда вы уходите?</h2>
+                <button class="btn btn-status btn-work" data-status="work">
+                    <span class="btn-icon">💼</span>
+                    <span class="btn-text">На работу</span>
+                </button>
+                <button class="btn btn-status btn-dayoff" data-status="day_off">
+                    <span class="btn-icon">🌙</span>
+                    <span class="btn-text">На сутки</span>
+                </button>
+                <button class="btn btn-status btn-request" data-status="request">
+                    <span class="btn-icon">📋</span>
+                    <span class="btn-text">По заявлению</span>
+                </button>
+            </div>
+
+            <!-- Кнопка для возврата -->
+            <div id="return-button" class="button-group hidden">
+                <button class="btn btn-status btn-return" data-status="inside">
+                    <span class="btn-icon">✅</span>
+                    <span class="btn-text">Я вернулся</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Экран подтверждения -->
+        <div id="confirm-screen" class="screen hidden">
+            <div class="confirm-message" id="confirm-message">
+                <div class="confirm-icon" id="confirm-icon">👋</div>
+                <div class="confirm-text" id="confirm-text">Хорошего дня!</div>
+            </div>
+            <button class="btn btn-secondary" id="back-btn">Назад</button>
+        </div>
+
+        <!-- Индикатор загрузки -->
+        <div id="loading" class="loading hidden">
+            <div class="spinner"></div>
+        </div>
+
+        <!-- Ошибка -->
+        <div id="error-toast" class="toast hidden"></div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

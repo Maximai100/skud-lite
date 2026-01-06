@@ -1,0 +1,327 @@
+/* === Переменные === */
+:root {
+    --primary: #3b82f6;
+    --primary-hover: #2563eb;
+    --success: #22c55e;
+    --success-hover: #16a34a;
+    --warning: #f59e0b;
+    --danger: #ef4444;
+    --bg: #f8fafc;
+    --bg-card: #ffffff;
+    --text: #1e293b;
+    --text-secondary: #64748b;
+    --border: #e2e8f0;
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+    --radius: 16px;
+    --radius-sm: 12px;
+}
+
+/* === Сброс и базовые стили === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    line-height: 1.5;
+}
+
+.container {
+    max-width: 420px;
+    margin: 0 auto;
+    padding: 20px;
+    min-height: 100vh;
+}
+
+.screen {
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh - 40px);
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* === Экран регистрации === */
+.logo {
+    text-align: center;
+    padding: 60px 0 40px;
+}
+
+.logo-icon {
+    font-size: 64px;
+    margin-bottom: 16px;
+}
+
+.logo h1 {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text);
+}
+
+.form-group {
+    margin-bottom: 24px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 16px 20px;
+    font-size: 18px;
+    border: 2px solid var(--border);
+    border-radius: var(--radius-sm);
+    background: var(--bg-card);
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+}
+
+/* === Кнопки === */
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: 100%;
+    padding: 18px 24px;
+    font-size: 18px;
+    font-weight: 600;
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: transform 0.15s, background-color 0.2s, box-shadow 0.2s;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+.btn-primary {
+    background: var(--primary);
+    color: white;
+    box-shadow: var(--shadow);
+}
+
+.btn-primary:hover {
+    background: var(--primary-hover);
+}
+
+.btn-secondary {
+    background: var(--bg-card);
+    color: var(--text);
+    border: 2px solid var(--border);
+}
+
+.btn-large {
+    padding: 20px 24px;
+    font-size: 20px;
+}
+
+/* === Главный экран === */
+.header {
+    padding: 16px 0;
+    margin-bottom: 16px;
+}
+
+.user-info {
+    text-align: center;
+}
+
+.user-name {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text);
+}
+
+.status-card {
+    background: var(--bg-card);
+    border-radius: var(--radius);
+    padding: 32px 24px;
+    text-align: center;
+    box-shadow: var(--shadow);
+    margin-bottom: 32px;
+}
+
+.status-label {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.status-value {
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.status-value.inside {
+    color: var(--success);
+}
+
+.status-value.outside {
+    color: var(--warning);
+}
+
+/* === Группа кнопок статуса === */
+.button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.section-title {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+.btn-status {
+    background: var(--bg-card);
+    color: var(--text);
+    box-shadow: var(--shadow);
+    justify-content: flex-start;
+    padding: 20px 24px;
+}
+
+.btn-status:hover {
+    background: #f1f5f9;
+}
+
+.btn-icon {
+    font-size: 28px;
+    width: 40px;
+    text-align: center;
+}
+
+.btn-text {
+    flex: 1;
+    text-align: left;
+}
+
+/* Кнопка "Я вернулся" */
+.btn-return {
+    background: linear-gradient(135deg, var(--success), #34d399);
+    color: white;
+    justify-content: center;
+    padding: 28px 24px;
+    font-size: 22px;
+}
+
+.btn-return:hover {
+    background: linear-gradient(135deg, var(--success-hover), #22c55e);
+}
+
+/* === Экран подтверждения === */
+#confirm-screen {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.confirm-message {
+    margin-bottom: 48px;
+}
+
+.confirm-icon {
+    font-size: 80px;
+    margin-bottom: 24px;
+    animation: bounce 0.6s ease-out;
+}
+
+.confirm-text {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--text);
+}
+
+@keyframes bounce {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+/* === Загрузка === */
+.loading {
+    position: fixed;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.spinner {
+    width: 48px;
+    height: 48px;
+    border: 4px solid var(--border);
+    border-top-color: var(--primary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* === Toast уведомления === */
+.toast {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--danger);
+    color: white;
+    padding: 16px 24px;
+    border-radius: var(--radius-sm);
+    font-weight: 500;
+    z-index: 1001;
+    animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+/* === Адаптивность === */
+@media (max-width: 380px) {
+    .container {
+        padding: 16px;
+    }
+    
+    .btn {
+        padding: 16px 20px;
+        font-size: 16px;
+    }
+    
+    .status-value {
+        font-size: 24px;
+    }
+}
