@@ -1,3 +1,21 @@
+import os
+import threading
+from http.server import HTTPServer, SimpleHTTPRequestHandler
+
+# --- НАЧАЛО БЛОКА ДЛЯ RENDER ---
+def run_web_server():
+    # Создаем простейший веб-сервер, чтобы Render думал, что это сайт
+    port = int(os.environ.get("PORT", 10000))
+    server_address = ('', port)
+    httpd = HTTPServer(server_address, SimpleHTTPRequestHandler)
+    print(f"Запускаю фейковый веб-сервер на порту {port}")
+    httpd.serve_forever()
+
+# Запускаем веб-сервер в отдельном потоке
+threading.Thread(target=run_web_server, daemon=True).start()
+# --- КОНЕЦ БЛОКА ---
+
+# Дальше идет твой обычный код...
 """
 Telegram бот для дежурного (СКУД-лайт)
 Команды: /start, /check, /absent, /reset, /delete
